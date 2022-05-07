@@ -32,6 +32,8 @@ const loadMeal = () => {
 const displayMeal = (meals) => {
     const row = document.getElementById('row');
     row.textContent = ''
+    const singleMeal = document.getElementById('single-meal');
+        singleMeal.textContent=''
     
     if (meals == null){
         const div = document.createElement('div');
@@ -65,6 +67,7 @@ const displayMeal = (meals) => {
         </div>
         `
         row.appendChild(div);
+        
     })
 }
 }
