@@ -1,20 +1,53 @@
 const loadMeal = () => {
     const inputField = document.getElementById('input-Field');
     const inputText = inputField.value;
-    
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputText}`;
+    const error = document.getElementById('error');
+
+    // empty field error massage
+
+    if(inputText == ''){
+        const div = document.createElement('div');
+        div.classList.add('col');
+        div.innerHTML = `
+            <h5 class="text-danger text-center w-full">Please write something!!!</h5>
+        `
+        error.appendChild(div);
+        const row = document.getElementById('row');
+        row.textContent = ''
+        const singleMeal = document.getElementById('single-meal');
+        singleMeal.textContent=''
+    }
+    if(inputText != ''){
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputText}`;
     fetch(url)
     .then(res => res.json())
     .then(data => displayMeal(data.meals))
+    
 
     inputField.value = ''
+    error.textContent= ''
+    }
 };
 
 const displayMeal = (meals) => {
-    // console.log(meals)
-    meals.forEach(meal =>{
-        // console.log(meal)
+    const row = document.getElementById('row');
+    row.textContent = ''
+    
+    if (meals == null){
+        const div = document.createElement('div');
+        div.classList.add('col');
+        div.innerHTML = `
+            
+            <h5 class="text-danger text-center w-full">No Data Found!!!</h5>
+        `
+        error.appendChild(div);
         const row = document.getElementById('row');
+        row.textContent = ''
+        const singleMeal = document.getElementById('single-meal');
+        singleMeal.textContent=''
+    }else{
+    meals.forEach(meal =>{
+        
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -34,6 +67,7 @@ const displayMeal = (meals) => {
         row.appendChild(div);
     })
 }
+}
 
 const showDetails = (id) => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
@@ -43,8 +77,8 @@ const showDetails = (id) => {
 }
 
 const showSingleMeal = (meal) =>{
-    console.log(meal)
     const singleMeal = document.getElementById('single-meal');
+    singleMeal.textContent=''
     const div = document.createElement('div');
     div.classList.add('row');
 
