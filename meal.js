@@ -25,6 +25,9 @@ const displayMeal = (meals) => {
           <p class="card-text">
            ${meal.strInstructions.slice(0, 200)}
           </p>
+          <button type="button" class="btn btn-success">Show Details</button>
+          <button type="button" class="btn btn-outline-success"><a href=${meal.strYoutube} target='_blank' style="text-decoration: none; color:green" onMouseOver="this.style.color='#fff'" onMouseOut="this.style.color='green'"> Recipe Video</a></button>
+
         </div>
       </div>
         `
