@@ -15,24 +15,33 @@
   </head>
   <body>
     <!-- search area -->
-    <h1 class="text-center text-success my-4">Here is your meal!!</h1>
-    <div class="input-group w-50 mx-auto mb-3">
-      <input
-        id="input-Field"
-        type="text"
-        class="form-control"
-        placeholder="Search Here..."
-      />
-      <span class="input-group-text" id="basic-addon2" onclick="loadMeal()"
-        >Search</span
-      >
-    </div>
-    <a href=""></a>
+    <header>
+      <h1 class="text-center text-success my-4">Here is your meal!!</h1>
+      <div class="input-group w-50 mx-auto mb-3">
+        <input
+          id="input-Field"
+          type="text"
+          class="form-control"
+          placeholder="Search Here..."
+        />
+        <span class="input-group-text" id="basic-addon2" onclick="loadMeal()"
+          >Search</span
+        >
+      </div>
+    </header>
 
-    <!-- show meal here -->
+    <!-- show single meal -->
+
     <div class="container">
-      <div class="row row-cols-1 row-cols-md-3 g-4" id="row"></div>
+      <div class="mb-3 mx-auto w-50" id="single-meal"></div>
     </div>
+
+    <!-- show search result here -->
+    <section>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="row"></div>
+      </div>
+    </section>
 
     <!-- bootstrap js -->
     <script
